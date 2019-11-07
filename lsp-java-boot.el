@@ -85,10 +85,10 @@ Store CALLBACK to use it `sts/highlight'."
 
 (cl-defmethod lsp-execute-command
   (server (command (eql sts.open.url)) params)
-  (browse-url (seq-first params)))
+  (browse-url (lsp-seq-first params)))
 
 (cl-defmethod lsp-execute-command (server (command (eql sts.showHoverAtPosition)) params)
-  (goto-char (lsp--position-to-point (seq-first params)))
+  (goto-char (lsp--position-to-point (lsp-seq-first params)))
   (lsp-describe-thing-at-point))
 
 (defun lsp-java-boot--sts-hightlight (workspace params)
